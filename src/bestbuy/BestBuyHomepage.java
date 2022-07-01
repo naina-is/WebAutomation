@@ -46,7 +46,7 @@ public class BestBuyHomepage {
     @AfterTest
     public void tearDownAutomation() throws InterruptedException {
         Thread.sleep(5000);
-        driver.close();
+//        driver.close();
         System.out.println("******************* Automation Ended ********************");
     }
 
@@ -55,17 +55,18 @@ public class BestBuyHomepage {
 
 // * 1. Best Buy Search Box functionality when valid product is searched
 //    @Test
-    public static void TestSearchBoxFunctionalityWithValidProduct() {
+    public static void TestSearchBoxFunctionalityWithValidProduct() throws InterruptedException {
 //        type in the search bar for Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)
         driver.findElement(By.id("gh-search-input")).sendKeys("Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)");
 //        click on search button
         driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
         String expectedResult = "Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)";
 //        find the actual result by retrieving the text of the product's link
+        Thread.sleep(5000);
         String actualResult = driver.findElement(By.xpath("//*[text()='Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)']")).getText();
+        System.out.print("Verification: ");
         System.out.println("Expected result: " + expectedResult);
         System.out.println("Actual result: " + actualResult);
-        System.out.print("Verification: ");
 //       Verify that the search box functionality works when a valid product is searched:
         Assert.assertEquals(actualResult,expectedResult,"SearchBox functionality with valid product unsuccessful");
 
@@ -73,18 +74,19 @@ public class BestBuyHomepage {
 
 //    * 2. Best Buy Search Box functionality when invalid product is searched
 //    @Test
-    public static void TestSearchBoxFunctionalityWithInvalidProduct() {
+    public static void TestSearchBoxFunctionalityWithInvalidProduct() throws InterruptedException {
 //        type in the search bar for NYX lip gloss
         driver.findElement(By.id("gh-search-input")).sendKeys("NYX lip gloss");
 //        click on the search button
         driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
         String expectedResult = "Hmmm, we didn't find anything for \"nyx lip gloss\"";
 //        find the actual result of the page by retrieving the no results message for the invalid product
+        Thread.sleep(5000);
         String actualResult = driver.findElement(By.xpath("//h3[@class='no-results-message']")).getText();
+        System.out.println("Verification:");
         System.out.println("Actual Result: " + actualResult);
         System.out.println("Expected Result:" + expectedResult);
-        System.out.println("***************************************");
-        System.out.println("Verification:");
+
 //       Verify that the search box functionality works when an invalid product is searched:
         Assert.assertEquals(actualResult,expectedResult,"Searchbox functionality with invalid product is successful and there is no error message");
     }
@@ -96,6 +98,7 @@ public class BestBuyHomepage {
         driver.findElement(By.id("gh-search-input")).sendKeys("Animal Crossing: New Horizons - Nintendo Switch");
 //        Click on the search button
         driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
+        Thread.sleep(5000);
 //        Click on the link with the exact name: Animal Crossing: New Horizons - Nintendo Switch
         driver.findElement(By.xpath("//*[text()='Animal Crossing: New Horizons - Nintendo Switch']")).click();
 //        Click on add to cart button
@@ -108,13 +111,13 @@ public class BestBuyHomepage {
 //        String actualResult = driver.findElement(By.xpath("//*[text()='Animal Crossing: New Horizons - Nintendo Switch']")).getText();
 
 //
-        String actualCartResult = driver.findElement(By.cssSelector("#shop-cart-icon-8800918 > div > div > div > a > div")).getText();
+        String actualCartResult = driver.findElement(By.xpath("//div[@class='dot flex align-items-center justify-content-center' and @aria-hidden='true']")).getText();
         String expectedCartResult = "1";
         Assert.assertEquals(actualCartResult,expectedCartResult,"Adding valid item to cart unsuccessful");
     }
 
 //    * 4. Best buy sign in functionality when registered user signs in
-//    @Test
+    @Test
     public static void testSignInWithRegisteredUser() throws InterruptedException {
 //        From the best buy homepage, click on the account button
         driver.findElement(By.xpath("//button[@class='c-button-unstyled plButton account-button d-flex justify-content-center align-items-center']")).click();
@@ -127,7 +130,13 @@ public class BestBuyHomepage {
         driver.findElement(By.cssSelector("#fld-p1")).sendKeys("VzR_wri:qQ7P:x4");
 //        Click on the sign in button
         driver.findElement(By.cssSelector("body > div.cia-app-container > div > section > main > div.cia-wrapper__main > div.cia-content.js-cia-content > div > div > div > div > div > form > div.cia-form__controls > button")).click();
-
+        Thread.sleep(2000);
+        String fullActualResult = driver.findElement(By.xpath("//span[@class='v-p-right-xxs line-clamp' and contains(text(),'Hi,')]")).getText();
+        String expectedResult = "Hi,";
+        String actualResult = fullActualResult.substring(0,3);
+        System.out.println("Expected Result: "+expectedResult);
+        System.out.println("Actual Result: " + actualResult);
+        Assert.assertEquals(actualResult,expectedResult,"Sign in functionality with registered user is unsuccessful");
 
     }
 
@@ -258,7 +267,10 @@ public class BestBuyHomepage {
         System.out.println("Expected Result: " + expectedResult);
         System.out.println("Actual Result: " + actualResult);
         Assert.assertEquals(actualResult,expectedResult,"Top Deals Page is unsuccessful");
+
     }
+
+
 
 
 }
