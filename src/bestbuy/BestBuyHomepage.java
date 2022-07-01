@@ -34,7 +34,8 @@ public class BestBuyHomepage {
 
     @BeforeTest
     public void setup() {
-        String driverPath = "C:\\Users\\islam\\IdeaProjects\\WebAutomation\\BrowserDriver\\Windows\\chromedriver.exe";
+//        String driverPath = "C:\\Users\\islam\\IdeaProjects\\WebAutomation\\BrowserDriver\\Windows\\chromedriver.exe";
+        String driverPath = "../WebAutomation/BrowserDriver/Windows/chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
 //        opens youtube homepage on chrome
@@ -59,12 +60,12 @@ public class BestBuyHomepage {
 //        type in the search bar for Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)
         driver.findElement(By.id("gh-search-input")).sendKeys("Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)");
 //        click on search button
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
+        driver.findElement(By.className("header-search-button")).click();
         String expectedResult = "Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)";
 //        find the actual result by retrieving the text of the product's link
         Thread.sleep(5000);
         String actualResult = driver.findElement(By.xpath("//*[text()='Apple - iPhone 13 Pro Max 5G 256GB - Sierra Blue (AT&T)']")).getText();
-        System.out.print("Verification: ");
+        System.out.println("Verification: ");
         System.out.println("Expected result: " + expectedResult);
         System.out.println("Actual result: " + actualResult);
 //       Verify that the search box functionality works when a valid product is searched:
@@ -78,7 +79,7 @@ public class BestBuyHomepage {
 //        type in the search bar for NYX lip gloss
         driver.findElement(By.id("gh-search-input")).sendKeys("NYX lip gloss");
 //        click on the search button
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
+        driver.findElement(By.className("header-search-button")).click();
         String expectedResult = "Hmmm, we didn't find anything for \"nyx lip gloss\"";
 //        find the actual result of the page by retrieving the no results message for the invalid product
         Thread.sleep(5000);
@@ -97,7 +98,7 @@ public class BestBuyHomepage {
 //        In the search bar, type in product name: Animal Crossing: New Horizons - Nintendo Switch
         driver.findElement(By.id("gh-search-input")).sendKeys("Animal Crossing: New Horizons - Nintendo Switch");
 //        Click on the search button
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
+        driver.findElement(By.className("header-search-button")).click();
         Thread.sleep(5000);
 //        Click on the link with the exact name: Animal Crossing: New Horizons - Nintendo Switch
         driver.findElement(By.xpath("//*[text()='Animal Crossing: New Horizons - Nintendo Switch']")).click();
@@ -117,7 +118,7 @@ public class BestBuyHomepage {
     }
 
 //    * 4. Best buy sign in functionality when registered user signs in
-    @Test
+//    @Test
     public static void testSignInWithRegisteredUser() throws InterruptedException {
 //        From the best buy homepage, click on the account button
         driver.findElement(By.xpath("//button[@class='c-button-unstyled plButton account-button d-flex justify-content-center align-items-center']")).click();
@@ -143,20 +144,21 @@ public class BestBuyHomepage {
 //    * 5. Best buy sign in functionality when unregistered user tries to sign in
 //    @Test
     public static void testSignInWithUnregisteredUser() throws InterruptedException {
-        //        From the best buy homepage, click on the account button
+//        From the best buy homepage, click on the account button
         driver.findElement(By.xpath("//button[@class='c-button-unstyled plButton account-button d-flex justify-content-center align-items-center']")).click();
         Thread.sleep(5000);
 //        Click on the sign in button
         driver.findElement(By.xpath("//a[text()='Sign In']")).click();
 //        Enter an unregistered user's email in the email input
-        driver.findElement(By.cssSelector("#fld-e")).sendKeys("bb@email.com");
+        driver.findElement(By.cssSelector("#fld-e")).sendKeys("bestb@email.com");
 //       Enter the registered user's password in the password input
         driver.findElement(By.cssSelector("#fld-p1")).sendKeys("12345678");
 //        Click on the sign in button
         driver.findElement(By.cssSelector("body > div.cia-app-container > div > section > main > div.cia-wrapper__main > div.cia-content.js-cia-content > div > div > div > div > div > form > div.cia-form__controls > button")).click();
-        String expectedResult = "The password was incorrect. Please try again.";
+        String expectedResult = "create an account";
         Thread.sleep(5000);
-        String actualResult = driver.findElement(By.xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div[1]/div/strong/div")).getText();
+//        String actualResult = driver.findElement(By.xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div[1]/div/strong/div")).getText();
+        String actualResult = driver.findElement(By.xpath("//*[text()='create an account']")).getText();
         System.out.println("Expected Result: " + expectedResult);
         System.out.println("Actual Result: " + actualResult);
 //         Verify that the unregistered user cannot sign in by retrieving the message: The password was incorrect. Please try again.
@@ -234,7 +236,7 @@ public class BestBuyHomepage {
 //        type in the search bar for funko pop
         driver.findElement(By.id("gh-search-input")).sendKeys("funko pop");
 //        click on search button
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]")).click();
+        driver.findElement(By.className("header-search-button")).click();
         Thread.sleep(5000);
 //       click on a valid product
         driver.findElement(By.xpath("//a[text()='Funko - POP Games: Halo Infinite- Spartan Grenadier with HMG']")).click();
@@ -251,7 +253,7 @@ public class BestBuyHomepage {
     }
 
 //  * 10.Best buy top deals functionality works when clicked on
-    @Test
+//    @Test
     public static void testTopDealsOfTheDay() throws InterruptedException {
 //        click on menu button
         Thread.sleep(3000);
