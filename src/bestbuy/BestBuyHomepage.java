@@ -25,7 +25,6 @@ public class BestBuyHomepage {
      */
 
     static WebDriver driver;
-    String browserName = "chrome";
     String url = "https://www.bestbuy.com/";
     @BeforeTest
     public void setupAutomation(){
@@ -199,7 +198,7 @@ public class BestBuyHomepage {
     }
 
 //    * 8. Best buy sign out functionality after registered user signs in
-//    @Test
+    @Test
     public static void testSignOut() throws InterruptedException {
         //        From the best buy homepage, click on the account button
         driver.findElement(By.xpath("//button[@class='c-button-unstyled plButton account-button d-flex justify-content-center align-items-center']")).click();
