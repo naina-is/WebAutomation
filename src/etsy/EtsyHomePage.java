@@ -4,7 +4,6 @@ import base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class EtsyHomePage extends TestBase {
      * 1. This method tests if sign in with valid user is successful
      * @throws InterruptedException
      */
-    public static void testSignInValidUser() throws InterruptedException {
+    public static void SignInValidUser() throws InterruptedException {
 //        Click on Sign in button
         driver.findElement(By.cssSelector("div[class='wt-flex-shrink-xs-0']>nav>ul>li>button[class='wt-btn wt-btn--small wt-btn--transparent wt-mr-xs-1 inline-overlay-trigger signin-header-action select-signin']")).click();
         Thread.sleep(3000);
@@ -38,8 +37,7 @@ public class EtsyHomePage extends TestBase {
      * 2. This method tests if sign in with invalid user is successful
      * @throws InterruptedException
      */
-    //    @Test
-    public static void testSignInvalidUser() throws InterruptedException {
+    public static void SignInvalidUser() throws InterruptedException {
 //        Click on Sign in button
         driver.findElement(By.cssSelector("div[class='wt-flex-shrink-xs-0']>nav>ul>li>button[class='wt-btn wt-btn--small wt-btn--transparent wt-mr-xs-1 inline-overlay-trigger signin-header-action select-signin']")).click();
         Thread.sleep(3000);
@@ -63,8 +61,7 @@ public class EtsyHomePage extends TestBase {
      * 3. This method tests if the language settings for French works
      * @throws InterruptedException
      */
-//    @Test
-    public static void testLanguageSettingsFrench() throws InterruptedException {
+    public static void LanguageSettingsFrench() throws InterruptedException {
 //        Click on language settings button on the footer of the homepage
         driver.findElement(By.xpath("//div[@class='site-footer-tagline-links wt-pl-xs-4 wt-pr-xs-4 wt-pb-xs-3 wt-pt-xs-3']/div/child::div/a[@id='locale-picker-trigger']")).click();
         Thread.sleep(2000);
@@ -94,8 +91,7 @@ public class EtsyHomePage extends TestBase {
      * 4. This method tests if the language settings for Chinese works
      * @throws InterruptedException
      */
-//    @Test
-    public static void testLanguageSettingsChinese() throws InterruptedException {
+    public static void LanguageSettingsChinese() throws InterruptedException {
 //        Click on language settings button on the footer of the homepage
         driver.findElement(By.xpath("//div[@class='site-footer-tagline-links wt-pl-xs-4 wt-pr-xs-4 wt-pb-xs-3 wt-pt-xs-3']/div/child::div/a[@id='locale-picker-trigger']")).click();
         Thread.sleep(2000);
@@ -125,8 +121,7 @@ public class EtsyHomePage extends TestBase {
      * 5. This method tests if the language settings for Polish works
      * @throws InterruptedException
      */
-//    @Test
-    public static void testLanguageSettingsPolish() throws InterruptedException {
+    public static void LanguageSettingsPolish() throws InterruptedException {
 //        Click on language settings button on the footer of the homepage
         driver.findElement(By.xpath("//div[@class='site-footer-tagline-links wt-pl-xs-4 wt-pr-xs-4 wt-pb-xs-3 wt-pt-xs-3']/div/child::div/a[@id='locale-picker-trigger']")).click();
         Thread.sleep(2000);
@@ -156,8 +151,7 @@ public class EtsyHomePage extends TestBase {
      * 6. This method tests if outdoor decor button navigates to a page with search results for outdoor decor
      * @throws InterruptedException
      */
-//    @Test
-    public static void testOutdoorDecor() throws InterruptedException {
+    public static void OutdoorDecor() throws InterruptedException {
         Thread.sleep(2000);
 //        Click on outdoor decor button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/child::li[3]")).click();
@@ -175,8 +169,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 7. This method tests if the searchbox functionality works when a valid product is searched
      */
-//    @Test
-    public static void testSearchBox(){
+    public static void SearchBox(){
 //        Search "Plant Shelf" in the search box
         driver.findElement(By.xpath("/descendant::input[@id='global-enhancements-search-query']")).sendKeys("plant shelf");
 //       Click search button
@@ -200,8 +193,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 8. This method tests if the searchbox functionality works when an invalid product is searched
      */
-//    @Test
-    public static void testSearchBoxInvalidProduct(){
+    public static void SearchBoxInvalidProduct(){
 //        Search an invalid product in the search bar
         driver.findElement(By.cssSelector("input#global-enhancements-search-query")).sendKeys("23124MSNADN!!~#@$#");
 //    Click on search button
@@ -217,8 +209,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 9. This method tests if the test orders and shipping functionality works
      */
-//    @Test
-    public static void testOrdersAndShipping(){
+    public static void OrdersAndShipping(){
 //        Click the Help Center button
         driver.findElement(By.xpath("//span[text()='Teams']/ancestor::div[@class='wt-grid']/descendant::span[text()='Help Center']")).click();
 //      Click on Selling with Etsy
@@ -232,14 +223,14 @@ public class EtsyHomePage extends TestBase {
     /**
      * 10. This method tests if adding a custom product to cart works
      */
-//    @Test
-    public static void testAddToCartCustomProduct() throws InterruptedException {
+    public static void AddToCartCustomProduct() throws InterruptedException {
 ////        Search for a valid product
 //        driver.findElement(By.cssSelector("input#global-enhancements-search-query")).sendKeys("flower necklace");
 ////    Click on search button
 //        driver.findElement(By.xpath("//span[@class='wt-icon wt-nudge-b-2 wt-nudge-r-1']")).click();
 ////        Click on a valid product
 //        driver.findElement(By.xpath("//h3[contains(text(),'14K Gold Birth Flower Necklace, 50th birthday gift for women, Floral Name Necklace, Personalized Jewelry, Gift For Her, XW43')]")).click();
+
         String productUrl = "https://www.etsy.com/listing/1057568530/14k-gold-birth-flower-necklace-50th?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=flower+necklace&ref=sr_gallery-1-3&pro=1&frs=1&organic_search_click=1";
         driver.get(productUrl);
         //        Click on the necklace length dropdown menu
@@ -267,8 +258,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 11. This method tests if removing a custom product to cart works
      */
-//    @Test
-    public static void testRemoveCustomItemFromCart() throws InterruptedException {
+    public static void RemoveCustomItemFromCart() throws InterruptedException {
         String productUrl = "https://www.etsy.com/listing/1057568530/14k-gold-birth-flower-necklace-50th?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=flower+necklace&ref=sr_gallery-1-3&pro=1&frs=1&organic_search_click=1";
         driver.get(productUrl);
         //        Click on the necklace length dropdown menu
@@ -300,8 +290,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 12. This method tests if adding a product to wishlist works
      */
-//    @Test
-    public static void testAddingItemToWishList() throws InterruptedException {
+    public static void AddingItemToWishList() throws InterruptedException {
 //        //        Search for a valid product
 //        driver.findElement(By.cssSelector("input#global-enhancements-search-query")).sendKeys("green scarf");
 ////    Click on search button
@@ -334,8 +323,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 13. This method tests if removing a product to wishlist works
      */
-//    @Test
-    public static void testRemovingItemFromWishList() throws InterruptedException {
+    public static void RemovingItemFromWishList() throws InterruptedException {
         String productUrl = "https://www.etsy.com/listing/1113047470/cashmere-scarf-extra-large-shawl?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=green+scarf&ref=sr_gallery-1-2&frs=1&organic_search_click=1";
         driver.get(productUrl);
 //        click on the heart button to save item
@@ -374,8 +362,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 14. This method tests adding an uncustomized product to cart works
      */
-//    @Test
-    public static void testAddNormalItemToCart(){
+    public static void AddNormalItemToCart(){
         String productUrl = "https://www.etsy.com/listing/1082005708/75-cute-mixed-colors-sticker-lot-book?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=sticker+sheet&ref=sr_gallery-1-1&frs=1&pop=1&organic_search_click=1";
         driver.get(productUrl);
 //        Click add to cart
@@ -391,8 +378,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 15. This method tests removing an uncustomized product from cart works
      */
-//    @Test
-    public static void testRemoveNormalItemFromCart() throws InterruptedException {
+    public static void RemoveNormalItemFromCart() throws InterruptedException {
         String productUrl = "https://www.etsy.com/listing/1082005708/75-cute-mixed-colors-sticker-lot-book?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=sticker+sheet&ref=sr_gallery-1-1&frs=1&pop=1&organic_search_click=1";
         driver.get(productUrl);
 //        Click add to cart
@@ -413,8 +399,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 16. This method tests the free shipping filter on a search page
      */
-//    @Test
-    public static void testFreeShippingFilter() throws InterruptedException {
+    public static void FreeShippingFilter() throws InterruptedException {
 //        Click on sale button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/descendant::li[6]")).click();
 //    Click on All filters button
@@ -435,8 +420,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 17. This method tests the Estimated arrival custom date filter on a search page
      */
-//    @Test
-    public static void testEstimatedArrivalCustom() throws InterruptedException {
+    public static void EstimatedArrivalCustom() throws InterruptedException {
 //        Click on sale button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/descendant::li[6]")).click();
 //        Click on All filters button
@@ -461,8 +445,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 18. This method tests the sort by lowest price filter on a search page
      */
-//    @Test
-    public static void testSortByLowestPrice() throws InterruptedException {
+    public static void SortByLowestPrice() throws InterruptedException {
         //        Click on sale button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/descendant::li[6]")).click();
 //        Click on Sort By button
@@ -480,8 +463,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 19. This method tests the sort by customer reviews filter on a search page
      */
-//    @Test
-    public static void testSortByCustomerReviews() throws InterruptedException {
+    public static void SortByCustomerReviews() throws InterruptedException {
         //        Click on sale button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/descendant::li[6]")).click();
 //        Click on Sort By button
@@ -499,8 +481,7 @@ public class EtsyHomePage extends TestBase {
     /**
      * 20. This method tests saving a search page
      */
-    @Test
-    public static void testSaveSearchPage() throws InterruptedException {
+    public static void SaveSearchPage() throws InterruptedException {
         //        Click on sale button
         driver.findElement(By.xpath("//ul[@class='wt-grid wt-grid--block wt-justify-content-center wt-pt-xs-1 wt-pl-xs-1 wt-pr-xs-1 wt-pt-md-0 wt-pl-md-4 wt-pr-md-4 wt-pl-lg-6 wt-pr-lg-6']/descendant::li[6]")).click();
 //        Click on Sort By button
