@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Etsy Test Suite">
+
+   <test name="Etsy Automation Test">
+
+       <parameter name="number1" value="20"></parameter>
+       <parameter name="number2" value="30"></parameter>
+
+<!--Calling the Etsy home Page class through xml file by using class tag-->
+       <classes>
+<!--           <class name="testEtsy.EtsyHomePageTest"/>-->
+           <class name="testEtsy.LearnTestNG"/>
+       </classes>
+
+   </test>
+
+</suite>

@@ -2,7 +2,9 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 public class TestBase {
@@ -16,7 +18,7 @@ public class TestBase {
         System.out.println("******************* Automation Started ********************");
     }
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
 //        String driverPath = "C:\\Users\\islam\\IdeaProjects\\WebAutomation\\BrowserDriver\\Windows\\chromedriver.exe";
         String driverPath = "../WebAutomation/BrowserDriver/Windows/chromedriver.exe";
@@ -26,10 +28,10 @@ public class TestBase {
         driver.get(url);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDownAutomation() throws InterruptedException {
         Thread.sleep(5000);
-//        driver.close();
+        driver.close();
         System.out.println("******************* Automation Ended ********************");
     }
 }

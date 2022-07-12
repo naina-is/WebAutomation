@@ -9,17 +9,17 @@ import static etsy.EtsyHomePage.*;
 public class EtsyHomePageTest extends TestBase {
 //    Test Class
 
-//    @Test
+    @Test
     public static void testSignInRegisteredUser() throws InterruptedException {
         SignInValidUser();
     }
 
-//    @Test
+    @Test
     public static void testSignInvalidUser() throws InterruptedException {
         SignInvalidUser();
     }
 
-//    @Test
+    @Test
     public static void testLanguageSettingsFrench() throws InterruptedException {
         LanguageSettingsFrench();
     }
@@ -29,82 +29,82 @@ public class EtsyHomePageTest extends TestBase {
         LanguageSettingsChinese();
     }
 
-//    @Test
+    @Test
    public static void testLanguageSettingsPolish() throws InterruptedException{
        LanguageSettingsPolish();
    }
 
-//    @Test
+    @Test
    public static void testOutdoorDecor() throws InterruptedException{
        OutdoorDecor();
    }
 
-//    @Test
+    @Test
    public static void testSearchBox(){
         SearchBox();
    }
 
-//    @Test
+    @Test
    public static void testSearchBoxInvalidProduct(){
        SearchBoxInvalidProduct();
    }
 
-//    @Test
+    @Test
    public static void testOrdersAndShipping(){
        OrdersAndShipping();
    }
 
-//    @Test
+    @Test
    public static void testAddToCartCustomProduct() throws InterruptedException{
        AddToCartCustomProduct();
    }
 
-//    @Test
+    @Test
    public static void testRemoveCustomItemFromCart() throws InterruptedException{
         RemoveCustomItemFromCart();
    }
 
-//    @Test
+    @Test
    public static void testAddingItemToWishList() throws InterruptedException{
         AddingItemToWishList();
    }
 
-//    @Test
+    @Test
    public static void testRemovingItemFromWishList() throws InterruptedException{
         RemovingItemFromWishList();
    }
 
-//    @Test
+    @Test
    public static void testAddNormalItemToCart(){
         AddNormalItemToCart();
    }
 
-//    @Test
+    @Test
    public static void testRemoveNormalItemFromCart() throws InterruptedException{
         RemoveNormalItemFromCart();
    }
 
-//    @Test
+    @Test
    public static void testFreeShippingFilter() throws InterruptedException{
        FreeShippingFilter();
    }
 
-//    @Test
+    @Test
    public static void testEstimatedArrivalCustom() throws InterruptedException{
        EstimatedArrivalCustom();
    }
 
-//    @Test
+    @Test
    public static void testSortByLowestPrice() throws InterruptedException{
        SortByLowestPrice();
    }
 
-//    @Test
+    @Test
    public static void testSortByCustomerReviews() throws InterruptedException{
        SortByCustomerReviews();
    }
 
-//    @Test
+    @Test
    public static void testSaveSearchPage() throws InterruptedException{
        SaveSearchPage();
    }

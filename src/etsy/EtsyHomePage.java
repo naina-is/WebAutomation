@@ -159,10 +159,8 @@ public class EtsyHomePage extends TestBase {
         webElements = driver.findElements(By.xpath("//div/child::h3[contains(text(),'Outdoor Decor')]"));
 //        iterate all web elements
         for (WebElement el: webElements){
-            System.out.println("Elements: "+el);
-            if (el.equals("Outdoor Decor")){
-                System.out.println("Outdoor products found");
-            }
+            System.out.println("Elements: "+el.getText());
+            Assert.assertEquals(el.getText().contains("Outdoor Decor"),true,"Outdoor Decor not found");
         }
     }
 
